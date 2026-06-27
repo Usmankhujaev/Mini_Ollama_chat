@@ -1,0 +1,16 @@
+services:
+  chat:
+    build: .
+    image: mini-ollama-chat
+    ports:
+      - "8501:8501"
+    environment:
+      # хостовый Ollama; для Linux см. extra_hosts ниже
+      OLLAMA_URL: http://host.docker.internal:11434
+    extra_hosts:
+      # нужно, чтобы host.docker.internal резолвился и на Linux
+      - "host.docker.internal:host-gateway"
+    volumes:
+      # история чатов переживает пересоздание контейнера
+      - ./.sessions:/app/.sessions
+    restart: unless-stopped

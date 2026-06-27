@@ -1,0 +1,14 @@
+.git
+.gitignore
+.venv
+__pycache__
+*.pyc
+.sessions
+.DS_Store
+run.sh
+run.bat
+README.md
+Dockerfile
+.dockerignore
+docker-compose.yml
+sample_docs
